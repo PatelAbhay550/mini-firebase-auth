@@ -1,0 +1,33 @@
+{
+  "name": "mini-firebase-auth",
+  "type": "module",
+  "version": "1.0.4",
+  "description": "A simple CLI tool to quickly add Firebase Email Signup and Email Signin components (with Tailwind CSS) to your Next.js or React project.",
+  "main": "index.js",
+  "keywords": [
+    "firebase",
+    "auth",
+    "email signup",
+    "email login"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "mini-firebase-auth": "index.js"
+  },
+  "author": "Abhay Patel <patelabhay550@gmail.com>",
+  "homepage": "https://github.com/PatelAbhay550/mini-firebase-auth#readme",
+  "bugs": {
+    "url": "https://github.com/PatelAbhay550/mini-firebase-auth/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PatelAbhay550/mini-firebase-auth.git"
+  },
+  "license": "MIT",
+  "packageManager": "pnpm@10.11.0",
+  "dependencies": {
+    "tiny-terminal-colors": "^1.0.1"
+  }
+}
