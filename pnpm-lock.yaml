@@ -1,0 +1,22 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      tiny-terminal-colors:
+        specifier: ^1.0.1
+        version: 1.0.1
+
+packages:
+
+  tiny-terminal-colors@1.0.1:
+    resolution: {integrity: sha512-3p3nbdB82TOMSFGBfYO8sutpKAcZMr5qss2UHBQjWONYSa/6gqyQTn3BNR4jNbHCPab6FKU3JQmUuNheBfU3Kg==}
+
+snapshots:
+
+  tiny-terminal-colors@1.0.1: {}
