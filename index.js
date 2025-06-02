@@ -238,6 +238,97 @@ export default GoogleSignin;
       `.trim();
       writeFile(createComponentDir(), "GoogleSignin.js", googleSigninComponent);
       break;
+      case "phoneauth":
+      printHeader("Adding Phone Authentication Component with Tailwind CSS...");
+      const phoneAuthComponent = `
+// src/components/PhoneAuth.js
+"use client";
+import React, { useState } from "react";
+import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
+import { auth } from "../../lib/firebase"; // Ensure you have firebase.js in lib folder
+import { redirect } from "next/navigation";
+const PhoneAuth = () => {
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [verificationCode, setVerificationCode] = useState("");
+  const [confirmationResult, setConfirmationResult] = useState(null);
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const setupRecaptcha = () => {
+    window.recaptchaVerifier = new RecaptchaVerifier("recaptcha-container", {
+      size: "invisible",
+      callback: (response) => {
+        // reCAPTCHA solved, allow signInWithPhoneNumber.
+        console.log("reCAPTCHA solved, ready to send code.");
+      },
+    }, auth);
+  }
+  const handleSendCode = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError("");
+    setupRecaptcha();
+    try {
+      const appVerifier = window.recaptchaVerifier;
+      const result = await signInWithPhoneNumber(auth, phoneNumber, appVerifier);
+      setConfirmationResult(result);
+      alert("Verification code sent!");
+    } catch (err) {
+      console.error(err);
+      setError("Failed to send verification code: " + err.message);
+    }
+    setLoading(false);
+  }
+  const handleVerifyCode = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError("");
+    try {
+      if (!confirmationResult) {
+        throw new Error("No confirmation result available. Please send the verification code first.");
+      }
+      await confirmationResult.confirm(verificationCode);
+      redirect("/");
+    } catch (err) {
+      console.error(err);
+      setError("Verification failed: " + err.message);
+    }
+    setLoading(false);
+  }
+  return (
+    <div className="flex justify-center items-center min-h-screen bg-gray-100">
+      <div className="bg-white p-6 rounded shadow-md w-full max-w-md">
+        <h2 className="text-2xl font-bold mb-4">Phone Authentication</h2>
+        {error && <p className="text-red-500 mb-4">{error}</p>}
+        {!confirmationResult ? (
+          <form onSubmit={handleSendCode}>
+            <div className="mb-4">
+              <label htmlFor="phone" className="block text-sm font-medium mb-2">Phone Number</label>
+              <input type="tel" id="phone" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} required className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-200" />
+            </div>
+            <button type="submit" disabled={loading} className={\`w-full px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition \${loading ? "opacity-50 cursor-not-allowed" : ""}\`}>
+              {loading ? "Sending code..." : "Send Verification Code"}
+            </button>
+          </form>
+        ) : (
+          <form onSubmit={handleVerifyCode}>
+            <div className="mb-4">
+              <label htmlFor="code" className="block text-sm font-medium mb-2">Verification Code</label>
+              <input type="text" id="code" value={verificationCode} onChange={(e) => setVerificationCode(e.target.value)} required className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-200" />
+            </div>
+            <button type="submit" disabled={loading} className={\`w-full px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition \${loading ? "opacity-50 cursor-not-allowed" : ""}\`}>
+              {loading ? "Verifying..." : "Verify Code"}
+            </button>
+          </form>
+        )}
+        <div id="recaptcha-container"></div>
+      </div>
+    </div>
+  );
+};
+export default PhoneAuth;
+      `.trim();
+      writeFile(createComponentDir(), "PhoneAuth.js", phoneAuthComponent);
+      break;
 
     default:
       console.log(color.red("Unknown command. Usage: npx quickfirebase add [emailsignup|emailsignin|firebaseconfig|googlesignin]"));
