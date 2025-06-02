@@ -1,90 +1,57 @@
-<<<<<<< HEAD
-# QuickFirebase
+[![npm](https://img.shields.io/npm/d18m/mini-firebase-auth?logo=npm&labelColor=black)](https://www.npmjs.com/package/mini-firebase-auth)
+[![NPM License](https://img.shields.io/npm/l/mini-firebase-auth?color=blue)](https://github.com/PatelAbhay550/mini-firebase-auth/blob/main/LICENSE)
+# mini-firebase-auth
 
-A simple CLI tool to quickly add **Firebase Email Signup** and **Email Signin** components (with Tailwind CSS) to your Next.js or React project.
-
----
-
-## 🚀 Installation
-
-```bash
-npx quickfirebase add emailsignup
-npx quickfirebase add emailsignin
-npx quickfirebase add googlesignin
-npx quickfirebase add firebaseconfig
-```
----
-## 📦 Usage
-
-```bash
-npx quickfirebase add emailsignup
-npx quickfirebase add emailsignin
-[src/components/
-  ├── Signup.js
-  └── Signin.js
-]
-```
----
-## 🛠️ Customize
-You can customize the components by modifying the `Signup.js` and `Signin.js` files in the `src/components/` directory. Tailwind CSS classes are used for styling, so you can easily adjust the design to fit your needs.
-Change redirect("/") in components as needed.
-Adjust styling by modifying the Tailwind classes.
-
----
-## 📦 Requirements
-```text
-- Node.js (>= 14.x)
-- Firebase project setup
-- Tailwind CSS installed
-```
-
----
-## 📄 License
-
-```text
-MIT License
-=======
-# QuickFirebase
-
-A simple CLI tool to quickly add **Firebase Email Signup** and **Email Signin** components (with Tailwind CSS) to your Next.js or React project.
+A simple CLI tool to quickly add **Firebase Email Signup**, **Email Signin**, **Google Signin**, **FirebaseConfig**, and **env** components (with Tailwind CSS) to your Next.js or React project.
 
 ---
 
 ## 🚀 Installation
 
 ```bash
-npx quickfirebase add emailsignup
-npx quickfirebase add emailsignin
+npx mini-firebase-auth add emailsignup
+npx mini-firebase-auth add emailsignin
+npx mini-firebase-auth add googlesignin
+npx mini-firebase-auth add firebaseconfig
+npx mini-firebase-auth add env
 ```
+
 ---
+
 ## 📦 Usage
 
-```bash
-npx quickfirebase add emailsignup
-npx quickfirebase add emailsignin
-[src/components/
-  ├── Signup.js
-  └── Signin.js
-]
+After running the above commands, the following components will be added to your directory:
+
 ```
----
-## 🛠️ Customize
-You can customize the components by modifying the `Signup.js` and `Signin.js` files in the `src/components/` directory. Tailwind CSS classes are used for styling, so you can easily adjust the design to fit your needs.
-Change redirect("/") in components as needed.
-Adjust styling by modifying the Tailwind classes.
+src/components/
+  ├── Signup.js
+  ├── Signin.js
+  ├── GoogleSignin.js
+lib/
+  └── firebase.js
+[root]/
+  └── .env.local
+```
+
+You can import and use these components in your React or Next.js application as needed.
 
 ---
+
+## 🛠️ Customize
+
+You can customize the components by editing the `Signup.js`, `Signin.js`, and `GoogleSignin.js` files in the `src/components/` directory and `firebase.js` file in the `lib/` directory and `.env.local` file in the root directory. Tailwind CSS classes are used for styling, so you can easily adjust the design to fit your needs.  Update redirect paths and authentication logic as required for your project.
+
+---
+
 ## 📦 Requirements
-```text
+
 - Node.js (>= 14.x)
 - Firebase project setup
 - Tailwind CSS installed
-```
 
 ---
+
 ## 📄 License
 
-```text
 MIT License
->>>>>>> 649493763a184d80f22016e2c7b067529b7165b9
-```
+

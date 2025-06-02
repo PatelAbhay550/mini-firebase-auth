@@ -1,18 +1,17 @@
 {
   "name": "mini-firebase-auth",
   "type": "module",
-<<<<<<< HEAD
-  "version": "1.0.5",
-=======
-  "version": "1.0.4",
->>>>>>> 649493763a184d80f22016e2c7b067529b7165b9
-  "description": "A simple CLI tool to quickly add Firebase Email Signup and Email Signin components (with Tailwind CSS) to your Next.js or React project.",
+  "version": "1.0.8",
+  "description": "A simple CLI tool to quickly add Firebase Email Signup, Email Signin, Google Signin, FirebaseConfig, and env components (with Tailwind CSS) to your Next.js or React project.",
   "main": "index.js",
   "keywords": [
     "firebase",
     "auth",
     "email signup",
-    "email login"
+    "email login",
+    "google signin",
+    "firebase config",
+    "env"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
