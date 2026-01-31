@@ -1,6 +1,7 @@
 [![npm](https://img.shields.io/npm/d18m/mini-firebase-auth?logo=npm&labelColor=black)](https://www.npmjs.com/package/mini-firebase-auth)
 [![NPM License](https://img.shields.io/npm/l/mini-firebase-auth?color=blue)](https://github.com/PatelAbhay550/mini-firebase-auth/blob/main/LICENSE)
-[![GitHub Streak](https://streak-stats.demolab.com?user=Patelabhay550&theme=dark)](https://git.io/streak-stats)
+![Repo Views](https://visitor-badge.laobi.icu)
+
 # mini-firebase-auth
 
 A simple CLI tool to quickly add **Firebase Email Signup**, **Email Signin**, **Google Signin**, **Phone Auth**, **FirebaseConfig**, and **env** components (with Tailwind CSS) to your Next.js or React project.
